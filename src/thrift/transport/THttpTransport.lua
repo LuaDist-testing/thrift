@@ -1,10 +1,11 @@
 local class = require 'middleclass'
-local TTransport = require 'thrift.TTransport'
+local TTransport = require 'thrift.transport.TTransport'
 
 local THttpTransport = class('THttpTransport', TTransport)
 
-function THttpTransport:initialize()
+function THttpTransport:initialize(trans)
   TTransport.initialize(self)
+  self.trans = trans
   self.path = '/'
   self.wBuf = ''
   self.rBuf = ''

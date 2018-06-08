@@ -1,6 +1,6 @@
 local class = require 'middleclass'
 local terror = require 'thrift.terror'
-local TTransportException = require 'thrift.TTransportException'
+local TTransportException = require 'thrift.transport.TTransportException'
 
 local TTransport = class('TTransport')
 
@@ -10,16 +10,14 @@ function TTransport:close() end
 function TTransport:read() end
 
 function TTransport:readAll(len)
-  local buf, have, chunk = '', 0
+  local buf, have = '', 0
   while have < len do
-    chunk = self:read(len - have)
+    local chunk = self:read(len - have)
     have = have + string.len(chunk)
     buf = buf .. chunk
 
     if string.len(chunk) == 0 then
-      terror(TTransportException:new{
-        errorCode = TTransportException.END_OF_FILE
-      })
+      terror(TTransportException:new(nil, TTransportException.END_OF_FILE))
     end
   end
   return buf

@@ -1,5 +1,5 @@
 local class = require 'middleclass'
-local thrift_print_r = require 'thrift.thrift_print_r'
+local print_r = require 'thrift.print_r'
 
 local TException = class('TException')
 
@@ -10,15 +10,15 @@ end
 
 function TException:__tostring()
   if self.message then
-    return string.format('%s: %s', self.class, self.message)
+    return string.format('%s: %s', self.class.name, self.message)
   else
     local message
     if self.errorCode and self.__errorCodeToString then
       message = string.format('%d: %s', self.errorCode, self:__errorCodeToString())
     else
-      message = thrift_print_r(self)
+      message = print_r(self)
     end
-    return string.format('%s:%s', self.__type, message)
+    return string.format('%s:%s', self.class.name, message)
   end
 end
 

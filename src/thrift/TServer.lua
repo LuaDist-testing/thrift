@@ -1,7 +1,7 @@
 local class = require 'middleclass'
-local TBinaryProtocolFactory = require 'thrift.TBinaryProtocolFactory'
 local terror = require 'thrift.terror'
-local TFramedTransportFactory = require 'thrift.TFramedTransportFactory'
+local TBinaryProtocolFactory = require 'thrift.protocol.TBinaryProtocolFactory'
+local TFramedTransportFactory = require 'thrift.transport.TFramedTransportFactory'
 
 local TServer = class('TServer')
 
@@ -10,10 +10,10 @@ local TServer = class('TServer')
 --   2. {processor, serverTransport, transportFactory, protocolFactory}
 function TServer:initialize(processor, serverTransport, transportFactory, protocolFactory)
   if processor == nil then
-    terror('You must provide ' .. self.class .. ' with a processor')
+    terror('You must provide ' .. self.class.name .. ' with a processor')
   end
   if serverTransport == nil then
-    terror('You must provide ' .. self.class .. ' with a serverTransport')
+    terror('You must provide ' .. self.class.name .. ' with a serverTransport')
   end
 
   self.processor = processor

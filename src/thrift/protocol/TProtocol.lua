@@ -1,12 +1,12 @@
 local class = require 'middleclass'
-local TType = require 'thrift.TType'
+local TType = require 'thrift.protocol.TType'
 
 local TProtocol = class('TProtocol')
 
 function TProtocol:initialize(trans)
   -- Ensure a transport is provided
   if not trans then
-    error('You must provide ' .. self.class .. ' with a trans')
+    error('You must provide ' .. self.class.name .. ' with a trans')
   end
   self.trans = trans
 end

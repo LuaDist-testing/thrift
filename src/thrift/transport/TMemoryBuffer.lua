@@ -1,19 +1,20 @@
 local class = require 'middleclass'
 local terror = require 'thrift.terror'
-local TTransport = require 'thrift.TTransport'
-local TTransportException = require 'thrift.TTransportException'
+local TTransport = require 'thrift.transport.TTransport'
+local TTransportException = require 'thrift.transport.TTransportException'
 
 local TMemoryBuffer = class('TMemoryBuffer', TTransport)
 
-function TMemoryBuffer:initialize()
+function TMemoryBuffer:initialize(size)
+  TTransport.initialize(self)
   self.buffer = ''
-  self.bufferSize = 1024
+  self.bufferSize = size or 1024
   self.wPos = 0
   self.rPos = 0
 end
 
 function TMemoryBuffer:isOpen()
-  return 1
+  return true
 end
 function TMemoryBuffer:open() end
 function TMemoryBuffer:close() end

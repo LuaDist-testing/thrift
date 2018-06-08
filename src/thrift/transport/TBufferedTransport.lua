@@ -1,10 +1,12 @@
 local class = require 'middleclass'
-local TTransport = require 'thrift.TTransport'
+local TTransport = require 'thrift.transport.TTransport'
 
 local TBufferedTransport = class('TBufferedTransport', TTransport)
 
-function TBufferedTransport:initialize()
+function TBufferedTransport:initialize(trans)
   TTransport.initialize(self)
+  assert(trans)
+  self.trans = trans
   self.rBufSize = 2048
   self.wBufSize = 2048
   self.wBuf = ''
