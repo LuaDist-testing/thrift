@@ -1,3 +1,7 @@
+## [0.10.0-4] - 2017-12-05
+### Fixed:
+- `TCompactProtocol` `readI64()` returns wrong results due to missing zigzag decoding
+
 ## [0.10.0-3] - 2017-12-02
 ### Fixed:
 - `TCompactProtocol` `readVarint64()` doesn't work with many numbers due to use of `readByte()` instead of `readSignByte()`
