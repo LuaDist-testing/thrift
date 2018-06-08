@@ -1,16 +1,16 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "thrift"
-version = "0.10.0-2"
+version = "0.10.0-3"
 -- LuaDist source
 source = {
-  tag = "0.10.0-2",
+  tag = "0.10.0-3",
   url = "git://github.com/LuaDist-testing/thrift.git"
 }
 -- Original source
 -- source = {
---   url = "https://github.com/BixData/lua-thrift/archive/0.10.0-2.tar.gz",
---   dir = "lua-thrift-0.10.0-2"
+--   url = "https://github.com/BixData/lua-thrift/archive/0.10.0-3.tar.gz",
+--   dir = "lua-thrift-0.10.0-3"
 -- }
 description = {
   summary = "LuaRocks packaging of Apache Thrift",
