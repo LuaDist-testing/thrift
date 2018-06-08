@@ -1,8 +1,8 @@
 package = "thrift"
-version = "0.10.0-0"
+version = "0.10.0-1"
 source = {
-  url = "https://github.com/BixData/lua-thrift/archive/0.10.0-0.tar.gz",
-  dir = "lua-thrift-0.10.0-0"
+  url = "https://github.com/BixData/lua-thrift/archive/0.10.0-1.tar.gz",
+  dir = "lua-thrift-0.10.0-1"
 }
 description = {
   summary = "LuaRocks packaging of Apache Thrift",

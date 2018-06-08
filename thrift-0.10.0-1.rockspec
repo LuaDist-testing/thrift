@@ -1,16 +1,16 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "thrift"
-version = "0.10.0-0"
+version = "0.10.0-1"
 -- LuaDist source
 source = {
-  tag = "0.10.0-0",
+  tag = "0.10.0-1",
   url = "git://github.com/LuaDist-testing/thrift.git"
 }
 -- Original source
 -- source = {
---   url = "https://github.com/BixData/lua-thrift/archive/0.10.0-0.tar.gz",
---   dir = "lua-thrift-0.10.0-0"
+--   url = "https://github.com/BixData/lua-thrift/archive/0.10.0-1.tar.gz",
+--   dir = "lua-thrift-0.10.0-1"
 -- }
 description = {
   summary = "LuaRocks packaging of Apache Thrift",
@@ -23,6 +23,7 @@ description = {
 }
 dependencies = {
   "bit32 <= 5.3.0-1",
+  "long >= 1.0.0, < 2.0.0",
   "lua >= 5.1, <= 5.3",
   "luasocket <= 3.0rc1-2",
   "middleclass <= 4.1-0",
